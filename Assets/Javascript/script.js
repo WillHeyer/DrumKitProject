@@ -27,7 +27,6 @@
 
 //API second TBD.
 
-
-
-
-
+$("body").on("keydown", function(e){
+    e.preventDefault();
+});
