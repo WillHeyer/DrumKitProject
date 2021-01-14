@@ -29,11 +29,8 @@
 
 $("body").on("keydown", function(e){
     e.preventDefault();
-    //var audio = $(`audio[data-key="${e.keyCode}"]`)
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const audio = $(`audio[data-key="${e.keyCode}"]`);
     if (!audio) return;
-    console.log(audio);
-   audio.currentTime = 0
-    audio.play();
-
+    audio[0].currentTime = 0;
+    audio[0].play();
 });
