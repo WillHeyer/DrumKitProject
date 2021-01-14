@@ -29,4 +29,8 @@
 
 $("body").on("keydown", function(e){
     e.preventDefault();
+    var audio = $(`audio[data-key="${e.keyCode}"]`)
+    console.log(audio);
+    audio.play();
+
 });
