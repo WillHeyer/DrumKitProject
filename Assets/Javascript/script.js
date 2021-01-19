@@ -49,6 +49,13 @@ $("#find-song").on("click", function(e){
             "x-rapidapi-host": "genius.p.rapidapi.com"
         }
     }).then(function(response){
-        console.log(response);
+        var lyricLink = $("<a>").text(`Song lyrics for ${songInput}`).attr({
+            href: response.response.hits[0].result.url,
+            target: "_blank"
+        });
+        var albumCover = $("<img>").attr({
+            src: response.response.hits[0].result.header_image_url
+        });
+        $(".field").append(lyricLink, albumCover);
     })
 });
