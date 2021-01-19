@@ -59,3 +59,18 @@ $("#find-song").on("click", function(e){
         $(".field").append(lyricLink, albumCover);
     })
 });
+// giphy section //
+$("#find-song").on("click", function(e){
+    e.preventDefault();
+    songInput = $("#song-search").val();
+    var giphyAPIkey = "4MjGqkgCVoeXw1NgMZwCp288vS9erLZo"
+    $.ajax({
+        url: "https://api.giphy.com/v1/gifs/random?api_key=" + giphyAPIkey + "&tag=" + songInput,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        var imgURL = response.data.image_url
+        var image = $("<img>").attr("src", imgURL);
+        $("#gifs").append(image);
+    })
+})
