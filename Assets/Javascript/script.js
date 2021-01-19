@@ -39,6 +39,7 @@ var songInput;
 
 $("#find-song").on("click", function(e){
     e.preventDefault();
+    $("#displayResults").empty()
     songInput = $("#song-search").val();
     var apiKey = "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c";
     $.ajax({
@@ -56,7 +57,7 @@ $("#find-song").on("click", function(e){
         var albumCover = $("<img>").attr({
             src: response.response.hits[0].result.header_image_url
         });
-        $(".field").append(lyricLink, albumCover);
+        $("#displayResults").append(lyricLink, albumCover);
     })
 });
 // giphy section //
