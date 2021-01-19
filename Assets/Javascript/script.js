@@ -35,25 +35,20 @@ $("body").on("keydown", function(e){
     audio[0].play();
 });
 
-var songInput = $("#song-search").val();
+var songInput;
 
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://genius.p.rapidapi.com/songs/" + songInput,
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c",
-		"x-rapidapi-host": "genius.p.rapidapi.com"
-	}
-};
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
+$("#find-song").on("click", function(e){
+    e.preventDefault();
+    songInput = $("#song-search").val();
+    var apiKey = "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c";
+    $.ajax({
+        url: "https://genius.p.rapidapi.com/search?q=" + songInput,
+        method: "GET",
+        headers: {
+            "x-rapidapi-key": "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c",
+            "x-rapidapi-host": "genius.p.rapidapi.com"
+        }
+    }).then(function(response){
+        console.log(response);
+    })
 });
-
-// $("#find-song").on("click", function(e){
-//     e.preventDefault();
-//     var queryURL = "https://genius.p.rapidapi.com/search?q=" + songInput + "";
-//     var apiKey = "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c";
-// })
