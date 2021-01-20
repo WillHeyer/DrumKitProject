@@ -13,19 +13,19 @@ $("body").on("keydown", function(e){
 
 // song search section //
 var songInput;
+var recentSearches = [];
 
 $("#find-song").on("click", function(e){
     e.preventDefault();
+    $("#displayResults").empty();
+    $("#searchHistory").empty();
+
     recentSearches.push($('#song-search').val());
-    $('#song-search').val("");
-    $('#searchHistory').text("");
     $.each(recentSearches, function (index, value) {
-        $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
+        $('#searchHistory').prepend("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
     });
-    $("#displayResults").empty()
-    $('#song-search').val(recentSearches[0]);
+
     songInput = $("#song-search").val();
-    var apiKey = "2b3ce8ab43mshb05f40c986dc36ap1f1691jsnf60a0ccd4f8c";
     $.ajax({
         url: "https://genius.p.rapidapi.com/search?q=" + songInput,
         method: "GET",
@@ -59,5 +59,3 @@ $("#find-song").on("click", function(e){
         $("#gifs").prepend(image);
     })
 })
-
-var recentSearches = [];
