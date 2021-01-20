@@ -13,7 +13,7 @@ PKDX-004 is an electronic drum kit inspired by the Roland TR-909 drum machine. W
 ## Links
 
 * GitHub Repository link: https://github.com/WillHeyer/DrumKitProject
-* GitHub live site link: 
+* GitHub live site link: https://willheyer.github.io/DrumKitProject/
 
 ## Funcionality
 
