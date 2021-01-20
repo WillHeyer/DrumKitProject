@@ -25,7 +25,24 @@ Whether users are experienced musicians or first time percussionists, the PKDX-0
 
 # Application Preview
 On load, the PKDX-004
-![Load screen as website loads]()
-![After search has completed and populated]()
-![After a second search showing the added giphy but only the current song search]()
+
+![Load screen as website loads](Assets/Images/Preview/on-load.png)
+
+After first search result
+
+![After search has completed and populated](Assets/Images/Preview/first-result.png)
+
+After second search result
+
+![After a second search showing the added giphy but only the current song search](Assets/Images/Preview/second-result.png)
+
+# Future Development
+
+* Sequencer
+    * Allow a user to drag and drop different instruments into 16 different slots.
+    * Press a play button to continuously play through the sequence until the user tells it to stop.
+* Recording feature
+    * Similar to the sequencer but instead of dragging and dropping notes onto a track, it would instead listen for the instruments being played on a key press and store them to be played back later. 
+* Effects
+    * Allow a user to apply different effects onto the instruments.
 
