@@ -16,12 +16,9 @@ var songInput;
 
 $("#find-song").on("click", function(e){
     e.preventDefault();
-    recentSearches.push($('#song-search').val()); // This line puts the value from the text box in an array
-    $('#song-search').val(""); //  clear the text box after search
-    $('#searchHistory').text(""); //clear the seach history window then repopulate with the new array
-    
-    // the function below loops through the array and adds each item in the array
-    // to the span element within the Search history arear
+    recentSearches.push($('#song-search').val());
+    $('#song-search').val("");
+    $('#searchHistory').text("");
     $.each(recentSearches, function (index, value) {
         $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
     });
@@ -59,27 +56,8 @@ $("#find-song").on("click", function(e){
         console.log(response);
         var imgURL = response.data.image_url
         var image = $("<img>").attr("src", imgURL);
-        $("#gifs").append(image);
+        $("#gifs").prepend(image);
     })
 })
 
-var recentSearches = []; // create an empty javascript array
-
-// //this function is called using the search buttons "onclick"
-// function searchFunction(data) {
-    
-//     recentSearches.push($('#song-search').val()); // This line puts the value from the text box in an array
-//     $('#song-search').val(""); //  clear the text box after search
-//     $('#searchHistory').text(""); //clear the seach history window then repopulate with the new array
-    
-//     // the function below loops through the array and adds each item in the array
-//     // to the span element within the Search history arear
-//     $.each(recentSearches, function (index, value) {
-//         $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
-//     });
-// }
-
-// function addtotextbox(id)
-// {
-// $('#song-search').val(recentSearches[id]);
-// }
+var recentSearches = [];
