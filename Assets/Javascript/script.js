@@ -1,4 +1,4 @@
-//keydowns that play sound //
+// Keydowns that play sound
 $("body").on("keydown", function(e){
     if ($("#checkbox").is(":checked")==true){
         e.stopImmediatePropagation();
@@ -11,7 +11,7 @@ $("body").on("keydown", function(e){
     }
 });
 
-// song search section //
+// Song search section
 var songInput;
 var recentSearches = [];
 
@@ -20,11 +20,13 @@ $("#find-song").on("click", function(e){
     $("#displayResults").empty();
     $("#searchHistory").empty();
 
+    // Populates most recent search
     recentSearches.push($('#song-search').val());
     $.each(recentSearches, function (index, value) {
         $('#searchHistory').prepend("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
     });
 
+    // Searches API for song name
     songInput = $("#song-search").val();
     $.ajax({
         url: "https://genius.p.rapidapi.com/search?q=" + songInput,
@@ -44,7 +46,8 @@ $("#find-song").on("click", function(e){
         $("#displayResults").append(lyricLink, albumCover);
     })
 });
-// giphy section //
+
+// Giphy section
 $("#find-song").on("click", function(e){
     e.preventDefault();
     songInput = $("#song-search").val();
