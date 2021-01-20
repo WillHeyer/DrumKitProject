@@ -1,10 +1,14 @@
 //keydowns that play sound //
 $("body").on("keydown", function(e){
-    e.preventDefault();
-    const audio = $(`audio[data-key="${e.keyCode}"]`);
-    if (!audio) return;
-    audio[0].currentTime = 0;
-    audio[0].play();
+    if ($("#checkbox").is(":checked")==true){
+        e.stopImmediatePropagation();
+    }else{
+        e.preventDefault();
+        const audio = $(`audio[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        audio[0].currentTime = 0;
+        audio[0].play();
+    }
 });
 
 // song search section //
